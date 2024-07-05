@@ -38,23 +38,18 @@ After repository is locally cloned, make sure you have run the following command
 
 I. To run all tests use command:
 
-    ```console
     npm test cucumber-js
-    ```
 
 II. Or you can manage test runs via tags in scenarios
 
 For example if you want to run all the tests from home-page.feature, use a command like so:
 
-    ```console
     npx cucumber-js --tags "@HomePage"
-    ```
 
 If you want to run a single test, use its unique tag. For example: 
 
-    ```console
     npx cucumber-js --tags "@HomePage-Test2"
-    ```
+   
 
 ## Reporting
 
