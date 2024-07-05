@@ -22,9 +22,9 @@ After repository is locally cloned, make sure you have run the following command
 
 ## Project structure
 
-1. .vscodecode directory holds settiings.json file for setting relative paths to features and step definitions files.
+1. .vscode directory holds settiings.json file for setting relative paths to features and step definitions files.
 
-2. hooks directtory contains hooks.ts with logic for hooks that should be executed before and after all run tests and before and after each single test
+2. hooks directory contains hooks.ts with logic for hooks that should be executed before and after all run tests and before and after each single test
 
 3. pages directory is for all UI objects and each class there holds page Object and functions for actions on that page.
 
@@ -53,7 +53,7 @@ If you want to run a single test, use its unique tag. For example:
 
 ## Reporting
 
-Currently the project saves only HTML report for the run in test-results directtory. To open the report navigate to the directory on your machine and open cucumber-report.html file in your browser.
+Currently the project saves only HTML report for the run in test-results directory. To open the report navigate to the directory on your machine and open cucumber-report.html file in your browser.
 
 
 
