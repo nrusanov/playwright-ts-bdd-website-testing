@@ -1,21 +1,35 @@
-import { Then, When } from "@cucumber/cucumber";
+import { When, Then } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
-import { Browser, Page, chromium } from "playwright";
-import { HomePage } from "../../pages/homePage";
 import { page } from "../../hooks/hooks";
+import { HomePage } from "../../pages/homePage";
 
-//let browser: Browser;
-//let page: Page;
+let homePage: HomePage;
 
 When('user navigates to the Home Page URL', async function () {
-//    browser = await chromium.launch({headless: false});
-//    page = await browser.newPage();
-
-    await page.goto('https://compendiumdev.co.uk/');
+  homePage = new HomePage (page);
+  await homePage.navigate(); 
 });
 
 Then('Home Page should be navigated', async function () {
-  await page.pause();
-  await expect(page).toHaveTitle('Software Development, Testing and Marketing Consultancy');
-  //await browser.close();
+  await homePage.isPageTitleAvailable('Software Development, Testing and Marketing Consultancy');
+})
+
+Then('user sees the services offered: {string}', async function (offeredServices: string) {
+  let actualServices = await homePage.getMainHeadingText() as string;
+  expect(offeredServices).toStrictEqual(actualServices.trim());
+})
+
+Then('user sees the EvilTester.com and Talotics.com links', async function () {
+  const evilTesterLinkIsVisible = await homePage.isSoftwareDevelopmentAndTestingLinkVisible();
+  const marketingLinkIsVisible = await homePage.isMarketingLinkVisible();
+  expect(evilTesterLinkIsVisible).toStrictEqual(true);
+  expect(marketingLinkIsVisible).toStrictEqual(true);
+})
+
+Then('user sees the following icons for social media and contact: {string}', async function (expectedVisibleIcons: string) {
+  const expectedVisibleIconsArray = expectedVisibleIcons.toLowerCase().split(',');
+  for (let i = 0; i < expectedVisibleIconsArray.length; i++) {
+    const isIconVisible =  await homePage.isIconForSocialMediaVisible(expectedVisibleIconsArray[i].trim());
+    expect(isIconVisible).toStrictEqual(true);
+  }
 })
