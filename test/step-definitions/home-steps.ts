@@ -8,14 +8,14 @@ let homePage: HomePage;
 When('user navigates to the Home Page URL', async function () {
   homePage = new HomePage (page);
   await homePage.navigate(); 
-});
+})
 
 Then('Home Page should be navigated', async function () {
   await homePage.isPageTitleAvailable('Software Development, Testing and Marketing Consultancy');
 })
 
 Then('user sees the services offered: {string}', async function (offeredServices: string) {
-  let actualServices = await homePage.getMainHeadingText() as string;
+  const actualServices = await homePage.getMainHeadingText() as string;
   expect(offeredServices).toStrictEqual(actualServices.trim());
 })
 

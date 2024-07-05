@@ -1,5 +1,5 @@
 import { Page } from "playwright";
-import { Locator, expect } from "playwright/test";
+import { expect } from "playwright/test";
 
 export class HomePage {
 

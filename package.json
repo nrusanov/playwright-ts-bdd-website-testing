@@ -6,7 +6,7 @@
     "ts-node": "^10.9.2"
   },
   "scripts": {
-    "test": "cucumber-js test",
+    "test": "cucumber-js",
     "test:tags": "npx cucumber-js --tags"
   }
 }
