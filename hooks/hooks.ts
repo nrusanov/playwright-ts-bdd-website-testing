@@ -1,7 +1,8 @@
 import { After, AfterAll, Before, BeforeAll, setDefaultTimeout } from "@cucumber/cucumber";
 import { Browser, BrowserContext, chromium, LaunchOptions, Page } from "@playwright/test";
+import { DEFAULT_TIMEOUT } from "../project-constants/constants";
 
-setDefaultTimeout(60 * 1000);
+setDefaultTimeout(DEFAULT_TIMEOUT);
 
 let page: Page;
 let browser: Browser;

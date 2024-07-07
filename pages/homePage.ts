@@ -1,5 +1,6 @@
 import { Page } from "playwright";
 import { expect } from "playwright/test";
+import { BASE_URL } from "../project-constants/constants";
 
 export class HomePage {
 
@@ -10,7 +11,7 @@ export class HomePage {
     }
     
     async navigate () {
-        await this.page.goto('https://compendiumdev.co.uk/');
+        await this.page.goto(BASE_URL);
     }
 
     async isPageTitleAvailable (title: string) {
@@ -35,9 +36,23 @@ export class HomePage {
         return await iconElement.isVisible();
     }
 
-    async isLinkOnHomePageVisible (linkSelector: string) {
+    async isLinkInSiteHeadingNavigationVisible (linkName: string) {
+        const navigationLinkElement = await this.getLinkElement(linkName);
+        return await navigationLinkElement.isVisible();
+    }
+
+    async clickLinkInSiteHeadingNavigation (linkName: string) {
+        const navigationLinkToClick = await this.getLinkElement(linkName);
+        await navigationLinkToClick.click();
+    }
+
+    private async isLinkOnHomePageVisible (linkSelector: string) {
         const linkElement = this.page.locator(linkSelector);
         return await linkElement.isVisible();
     }
+
+    private async getLinkElement (linkName: string) {
+        return this.page.locator('#cssmenu').getByRole('link', { name: linkName });
+    } 
 
 }

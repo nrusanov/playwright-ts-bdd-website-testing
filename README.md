@@ -38,7 +38,7 @@ After repository is locally cloned, make sure you have run the following command
 
 I. To run all tests use command:
 
-    npm test cucumber-js
+    npm run test
 
 II. Or you can manage test runs via tags in scenarios
 
@@ -54,6 +54,10 @@ If you want to run a single test, use its unique tag. For example:
 ## Reporting
 
 Currently the project saves only HTML report for the run in test-results directory. To open the report navigate to the directory on your machine and open cucumber-report.html file in your browser.
+
+## Test failures
+
+For demonstration purposes there is one failing test - Scenario: User can navigate to Contact section of the site. Email should not contain spaces - currently it's **contact @compendiumdev.co.uk**, but should be: **contact@compendiumdev.co.uk**
 
 
 
