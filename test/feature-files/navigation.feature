@@ -8,3 +8,8 @@ Scenario: User can navigate to Contact section of the site
     And user sees Contact title 
     And user sees a photo of the author
     And user sees the contact email: 'contact@compendiumdev.co.uk'
+
+@NavigationTests @Navigation-Test2
+Scenario: User can see site logo in the site footer
+    When user navigates to the Contact page
+    Then user sees the site logo in site footer   

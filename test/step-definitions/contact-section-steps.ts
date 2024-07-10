@@ -1,4 +1,4 @@
-import { Then } from "@cucumber/cucumber";
+import { Then, When } from "@cucumber/cucumber";
 import { ContactPage } from "../../pages/contactPage";
 import { page } from "../../hooks/hooks";
 import { expect } from "playwright/test";
@@ -25,4 +25,14 @@ Then('user sees a photo of the author', async function () {
 Then('user sees the contact email: {string}', async function (contactEmail: string) {
     const actualContactEmail = await contactPage.getContactEmail();
     expect(actualContactEmail).toStrictEqual(contactEmail);
+})
+
+When('user navigates to the Contact page', async function () {
+    contactPage = new ContactPage(page);
+    await contactPage.navigate();
+})
+
+Then('user sees the site logo in site footer', async function () {
+   const isSiteLogoVisible = await contactPage.isSiteLogoVisibleInFooter();
+   expect(isSiteLogoVisible).toStrictEqual(true);
 })
