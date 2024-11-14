@@ -1,13 +1,15 @@
-import { Page } from "playwright";
+import { Page, Locator } from "playwright";
 import { expect } from "playwright/test";
 import { BASE_URL } from "../project-constants/constants";
 
 export class HomePage {
 
     readonly page: Page;
+    private mainHeading: Locator;
 
     constructor(page: Page) {
         this.page = page;
+        this.mainHeading = page.locator('h1');
     }
     
     async navigate () {
@@ -19,8 +21,7 @@ export class HomePage {
     }
 
     async getMainHeadingText () {
-        const mainHeadingElement = await this.page.locator('h1');
-        return mainHeadingElement.textContent();
+        return await this.mainHeading.textContent();
     }
 
     async isSoftwareDevelopmentAndTestingLinkVisible () {
@@ -31,9 +32,9 @@ export class HomePage {
        return await this.isLinkOnHomePageVisible('(//a[@href="https://talotics.com"])[1]');
     }
 
-    async isIconForSocialMediaVisible (iconNamePlaceholder: string) {    
-        const iconElement = this.page.locator(`.topright [src="/images/icons/${iconNamePlaceholder}.png"]`);
-        return await iconElement.isVisible();
+    async isIconForSocialMediaVisible (iconNamePlaceholder: string) { 
+       const iconElement = this.page.locator(`.topright [src="/images/icons/${iconNamePlaceholder}.png"]`);
+       return await iconElement.isVisible();
     }
 
     async isLinkInSiteHeadingNavigationVisible (linkName: string) {

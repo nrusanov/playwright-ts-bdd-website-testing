@@ -13,7 +13,7 @@ Then('contact section should be navigated', function () {
 })
 
 Then('user sees Contact title', async function () {
-    const actualPageTitle = (await contactPage.getpageTitle()).trim();
+    const actualPageTitle = (await contactPage.getpageTitle() as string).trim();
     expect(actualPageTitle).toStrictEqual('Contact');
 })
 
