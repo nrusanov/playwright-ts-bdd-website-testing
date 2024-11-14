@@ -56,35 +56,25 @@ Default browser engine is Chromium.
 
 If you want to change default browser, you can do so by changing the const browserType definition in hooks.ts with the desired default browser, i.e.:
 
-    ```javascript
-    const browserType = process.env.BROWSER || 'chromium';
-    ```
+    const browserType = process.env.BROWSER || 'firefox';
 
 Otherwise you can use the same commands for test runs without need to pass explicitly the browser type when you want to do the test run with the default browser.
 
 If you want to run all tests with different from default browser, use these commands:
 
-    ```console
     BROWSER=firefox npm run test
-    ```
 
 OR
 
-    ```console
     BROWSER=webkit npm run test
-    ```
 
 If you want to run test/s with specific tags, you can use the same commands as with default browser, but with added BROWER=browserType in front of the command. For example:
 
-    ```console
     BROWSER=webkit npx cucumber-js --tags "@HomePage-Test1"
-    ```
 
 OR
 
-    ```console
-    BROWSER=webkit npx cucumber-js --tags "@NavigationTests"
-    ```
+    BROWSER=webkit npx cucumber-js --tags "@NavigationTests"  
 
 ## Reporting
 
