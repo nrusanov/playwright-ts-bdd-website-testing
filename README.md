@@ -1,6 +1,6 @@
 # Playwright (TS) + Cucumber (BDD) Testing project
 
-This is a UI automation project of website: https://compendiumdev.co.uk/. The project is built with Playwright as a testing library and Typescript as a programming languages and using Cucumber for behaviour driven development (BDD) tool. Project is written with Page Object Model design pattern. More detailed structure below. 
+This is a UI automation project of website: https://compendiumdev.co.uk/. The project is built with Playwright as a testing library and TypeScript as a programming languages and using Cucumber for behaviour driven development (BDD) tool. Project is written with Page Object Model design pattern. More detailed structure below. 
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ After repository is locally cloned, make sure you have run the following command
 
 ## Project structure
 
-1. .vscode directory holds settiings.json file for setting relative paths to features and step definitions files.
+1. .vscode directory holds settings.json file for setting relative paths to features and step definitions files.
 
 2. hooks directory contains hooks.ts with logic for hooks that should be executed before and after all run tests and before and after each single test
 
