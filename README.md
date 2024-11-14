@@ -1,6 +1,6 @@
 # Playwright (TS) + Cucumber (BDD) Testing project
 
-This is a UI automation project of website: https://compendiumdev.co.uk/. The project is built with Playwright as a testing library and TypeScript as a programming languages and using Cucumber for behaviour driven development (BDD) tool. Project is written with Page Object Model design pattern. More detailed structure below. 
+This is a UI automation project of website: https://compendiumdev.co.uk/. The project is built with Playwright as a testing library and TypeScript as a programming language and using Cucumber for behaviour driven development (BDD) tool. Project is written with Page Object Model design pattern. More detailed structure below. 
 
 ## Prerequisites
 
@@ -49,7 +49,42 @@ For example if you want to run all the tests from home-page.feature, use a comma
 If you want to run a single test, use its unique tag. For example: 
 
     npx cucumber-js --tags "@HomePage-Test2"
-   
+
+## Browsers management
+
+Default browser engine is Chromium. 
+
+If you want to change default browser, you can do so by changing the const browserType definition in hooks.ts with the desired default browser, i.e.:
+
+    ```javascript
+    const browserType = process.env.BROWSER || 'chromium';
+    ```
+
+Otherwise you can use the same commands for test runs without need to pass explicitly the browser type when you want to do the test run with the default browser.
+
+If you want to run all tests with different from default browser, use these commands:
+
+    ```console
+    BROWSER=firefox npm run test
+    ```
+
+OR
+
+    ```console
+    BROWSER=webkit npm run test
+    ```
+
+If you want to run test/s with specific tags, you can use the same commands as with default browser, but with added BROWER=browserType in front of the command. For example:
+
+    ```console
+    BROWSER=webkit npx cucumber-js --tags "@HomePage-Test1"
+    ```
+
+OR
+
+    ```console
+    BROWSER=webkit npx cucumber-js --tags "@NavigationTests"
+    ```
 
 ## Reporting
 
